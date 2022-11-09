@@ -264,6 +264,7 @@ int main() {
                             i++;
 
                         }
+                        //
                     }
                     if (rtck == 'm') {
                         int i = startInsideIndex;
