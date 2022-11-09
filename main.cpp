@@ -7,12 +7,12 @@ int main() {
     cin >> OPERATIONS;
     int gIndexer = 0;
     while (gIndexer < OPERATIONS){
-        int tabtabtabtabSize = 0;
-        cin >> tabtabtabtabSize;
-        int tab[tabtabtabtabSize];
+        int tabSize = 0;
+        cin >> tabSize;
+        int tab[tabSize];
 
         int tabCiner =0;
-        while (tabCiner < tabtabtabtabSize ){
+        while (tabCiner < tabSize ){
             cin >> tab[tabCiner];
 
             tabCiner++;
@@ -43,30 +43,35 @@ int main() {
                 cin >> startIndex >> grouptabtabtabSize;
                 int EndIndex;
 
-                startIndex=((startIndex % tabtabtabtabSize) + tabtabtabtabSize)%tabtabtabtabSize;
-                EndIndex=(startIndex+grouptabtabtabSize -1)%tabtabtabtabSize;
+                startIndex=((startIndex % tabSize) + tabSize)%tabSize;
+                EndIndex=(startIndex+grouptabtabtabSize -1)%tabSize;
 
                 int currentIndex=startIndex;
                 bool cyclicLogic = true;
                 bool  secondLap =false;
                 int processed = 0;
 
-                while (tabtabtabtabSize - processed >= grouptabtabtabSize){
+                while (tabSize - processed >= grouptabtabtabSize){
 
                    int groupInsideIndexer = 0;
                     while (groupInsideIndexer < grouptabtabtabSize / 2){
-                        int getValue= tab[(currentIndex + groupInsideIndexer) % tabtabtabtabSize];
-                        tab[(currentIndex + groupInsideIndexer) % tabtabtabtabSize] = tab[(EndIndex + groupInsideIndexer) % tabtabtabtabSize];
-                        tab[(EndIndex - groupInsideIndexer) % tabtabtabtabSize] = getValue;
+                        int getValue= tab[(currentIndex + groupInsideIndexer) % tabSize];
+                        tab[(currentIndex + groupInsideIndexer) % tabSize] = tab[(EndIndex + groupInsideIndexer) % tabSize];
+                        tab[(EndIndex - groupInsideIndexer) % tabSize] = getValue;
                     }
 
-                    currentIndex = (currentIndex + grouptabtabtabSize) % tabtabtabtabSize;
-                    EndIndex = (currentIndex + grouptabtabtabSize - 1) % tabtabtabtabSize;
+                    currentIndex = (currentIndex + grouptabtabtabSize) % tabSize;
+                    EndIndex = (currentIndex + grouptabtabtabSize - 1) % tabSize;
 
                     while (EndIndex <= 0){
-                        EndIndex = EndIndex + tabtabtabtabSize;
+                        EndIndex = EndIndex + tabSize;
                     }
                     processed = processed + grouptabtabtabSize;
+                }
+                
+                
+                for(int i=0;i<grouptabtabtabSize; i++){
+                    cout << tab[i] << " ";
                 }
 
 
@@ -106,7 +111,7 @@ int main() {
 
                 int startIndex = 0;
                 cin >> startIndex;
-                startIndex = ((startIndex %tabtabtabtabSize) +tabtabtabtabSize) %tabtabtabtabSize;
+                startIndex = ((startIndex %tabSize) +tabSize) %tabSize;
                 // cout << startIndex << " H"<<endl;
                 int START_INDEX = startIndex;
 
@@ -129,20 +134,20 @@ int main() {
 
                 while (CyclicLogic2){
                     int index = 0;
-                    int beforeTable =  tab[(startIndex + shift * index) %tabtabtabtabSize];
+                    int beforeTable =  tab[(startIndex + shift * index) %tabSize];
                     // cout << beforeTable << " X"<< endl;
                     while (index < group){
-                        int temp = tab[((shift * (index+1)) % group + startIndex) %tabtabtabtabSize];
+                        int temp = tab[((shift * (index+1)) % group + startIndex) %tabSize];
                         // cout << temp <<" ?  " <<endl;
 
-                        tab[(( shift * (index+1)) % group + startIndex) %tabtabtabtabSize] = beforeTable;
+                        tab[(( shift * (index+1)) % group + startIndex) %tabSize] = beforeTable;
                         beforeTable = temp;
                         whileTrue2 ++;
-                        if((whileTrue2 + group) %tabtabtabtabSize < whileTrue2 %tabtabtabtabSize){
-                            INDEX_TO_LAST = (whileTrue2 + group+1) %tabtabtabtabSize;
+                        if((whileTrue2 + group) %tabSize < whileTrue2 %tabSize){
+                            INDEX_TO_LAST = (whileTrue2 + group+1) %tabSize;
                             // cout<< INDEX_TO_LAST<<" Q"<< endl;
                             secondLap2 = true;
-                            whileTrue2 = whileTrue %tabtabtabtabSize;
+                            whileTrue2 = whileTrue %tabSize;
                             if(whileTrue2 + group -1 > startIndex ){
                                 CyclicLogic2 = false;
                             }
@@ -154,7 +159,7 @@ int main() {
                     }
                     whileTrue2 = whileTrue2 + group -2;
 
-                    startIndex = (startIndex + group ) %tabtabtabtabSize;
+                    startIndex = (startIndex + group ) %tabSize;
 
 
                     if(secondLap2 && whileTrue2 > startIndex){
@@ -176,14 +181,14 @@ int main() {
                     int temp = tab[((shift * (w+1)) % g2 + startIndex) % group];
                     // cout << temp <<" ?  " <<endl;
 
-                    tab[(( shift * (w+1)) % g2 + startIndex) %tabtabtabtabSize] = bfTable2;
+                    tab[(( shift * (w+1)) % g2 + startIndex) %tabSize] = bfTable2;
                     bfTable2 = temp;
 
                     w++;
                 }
 
 
-                for (int i = 0; i < tabtabtabtabSize; ++i) {
+                for (int i = 0; i < tabSize; ++i) {
                     cout<< tab[i] <<" ";
 
                 }
@@ -206,7 +211,7 @@ int main() {
 
                 int sIndex = 0;
                 int sGroup = 0;
-                sIndex = ((sIndex % tabtabtabtabSize) + tabtabtabtabSize) % tabtabtabtabSize;
+                sIndex = ((sIndex % tabSize) + tabSize) % tabSize;
                 cin >> sIndex;
                 cin >> sGroup;
                 int currentIndex = 0;
@@ -219,17 +224,17 @@ int main() {
                 while (firstLap || currentIndex < sIndex - 2 * sGroup){
 
                     while (index5 < sGroup){
-                        swap(tab[(currentIndex +index5) % tabtabtabtabSize],tab[( (currentIndex + index5 + sGroup ) % tabtabtabtabSize)] );
+                        swap(tab[(currentIndex +index5) % tabSize],tab[( (currentIndex + index5 + sGroup ) % tabSize)] );
                         index5++;
                         isFirst++;
 
-                        if(isFirst > tabtabtabtabSize){
+                        if(isFirst > tabSize){
                             firstLap = false;
                         }
                     }
-                    currentIndex = (currentIndex + 2 * sGroup) % tabtabtabtabSize;
+                    currentIndex = (currentIndex + 2 * sGroup) % tabSize;
                     }
-                    for(int i=0;i<tabtabtabtabSize;i++){
+                    for(int i=0;i<tabSize;i++){
                         cout<< tab[i]<<" ";}
 
             }
@@ -259,7 +264,7 @@ int main() {
                 //cout << startIndex << " y"<< endl;
                 int currentIndex = startIndex;
                 bool cycleLogic8 = true;
-                startIndex = ((startIndex % tabtabtabtabSize) + tabtabtabtabSize) % tabtabtabtabSize;
+                startIndex = ((startIndex % tabSize) + tabSize) % tabSize;
 
                 int whileTrue = startIndex;
                 bool firstLap = true;
@@ -281,16 +286,16 @@ int main() {
                         while (i < group) {
                             int j = 0;
                             while (j < group - 1) {
-                                if (tab[(currentIndex + j + 1) % tabtabtabtabSize] < tab[(currentIndex + j) % tabtabtabtabSize]) {
+                                if (tab[(currentIndex + j + 1) % tabSize] < tab[(currentIndex + j) % tabSize]) {
                                     int bufor = tab[currentIndex + j + 1];
-                                    tab[(currentIndex + j + 1) % tabtabtabtabSize] = tab[(currentIndex + j) % tabtabtabtabSize];
+                                    tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j) % tabSize];
                                     tab[currentIndex + j] = bufor;
                                 }
                                 j++;
                             }
                             i++;
                             whileTrue++;
-                            if (whileTrue > tabtabtabtabSize) {
+                            if (whileTrue > tabSize) {
                                 firstLap = false;
                             }
                         }
@@ -300,23 +305,23 @@ int main() {
                         while (i < group) {
                             int j = 0;
                             while (j < group - 1) {
-                                if (tab[(currentIndex + j) % tabtabtabtabSize] < tab[(currentIndex + j + 1) % tabtabtabtabSize]) {
+                                if (tab[(currentIndex + j) % tabSize] < tab[(currentIndex + j + 1) % tabSize]) {
                                     int bufor = 0;
-                                    bufor = tab[(currentIndex + j) % tabtabtabtabSize];
-                                    tab[(currentIndex + j) % tabtabtabtabSize] = tab[(currentIndex + j + 1) % tabtabtabtabSize];
-                                    tab[(currentIndex + j + 1) % tabtabtabtabSize] = bufor;
+                                    bufor = tab[(currentIndex + j) % tabSize];
+                                    tab[(currentIndex + j) % tabSize] = tab[(currentIndex + j + 1) % tabSize];
+                                    tab[(currentIndex + j + 1) % tabSize] = bufor;
                                 }
                                 j++;
                             }
                             i++;
                             whileTrue++;
-                            if (whileTrue > tabtabtabtabSize) {
+                            if (whileTrue > tabSize) {
                                 firstLap = false;
                             }
                         }
                     }
 
-                    bool a = (currentIndex+group) % tabtabtabtabSize > startIndex;
+                    bool a = (currentIndex+group) % tabSize > startIndex;
 
                     // cout << !firstLap << " " << a << endl;
                     if (!firstLap && a) {
@@ -324,7 +329,7 @@ int main() {
 
                     }
 
-                    currentIndex = (currentIndex + group) % tabtabtabtabSize;
+                    currentIndex = (currentIndex + group) % tabSize;
 
 
                 }
@@ -341,9 +346,9 @@ int main() {
                         while (i < lastElementtabtabSize) {
                             int j = 0;
                             while (j < lastElementtabtabSize - 1) {
-                                if (tab[(currentIndex + j + 1) % tabtabtabtabSize] < tab[(currentIndex + j) % tabtabtabtabSize]) {
+                                if (tab[(currentIndex + j + 1) % tabSize] < tab[(currentIndex + j) % tabSize]) {
                                     int bufor = tab[currentIndex + j + 1];
-                                    tab[(currentIndex + j + 1) % tabtabtabtabSize] = tab[(currentIndex + j) % tabtabtabtabSize];
+                                    tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j) % tabSize];
                                     tab[currentIndex + j] = bufor;
 
                                 }
@@ -353,7 +358,7 @@ int main() {
                             }
                             i++;
                             whileTrue++;
-                            if (whileTrue > tabtabtabtabSize) {
+                            if (whileTrue > tabSize) {
                                 firstLap = false;
                             }
                         }
@@ -365,19 +370,17 @@ int main() {
                         while (i < lastElementtabtabSize) {
                             int j = 0;
                             while (j < lastElementtabtabSize - 1) {
-                                if (tab[(currentIndex + j) % tabtabtabtabSize] < tab[(currentIndex + j + 1) % tabtabtabtabSize]) {
+                                if (tab[(currentIndex + j) % tabSize] < tab[(currentIndex + j + 1) % tabSize]) {
                                     int bufor = 0;
-                                    bufor = tab[(currentIndex + j) % tabtabtabtabSize];
-                                    tab[(currentIndex + j) % tabtabtabtabSize] = tab[(currentIndex + j + 1) % tabtabtabtabSize];
-                                    tab[(currentIndex + j + 1) % tabtabtabtabSize] = bufor;
+                                    bufor = tab[(currentIndex + j) % tabSize];
+                                    tab[(currentIndex + j) % tabSize] = tab[(currentIndex + j + 1) % tabSize];
+                                    tab[(currentIndex + j + 1) % tabSize] = bufor;
 
                                 }
                                 j++;
                             }
                             i++;
-
                         }
-
 
                     }
 
