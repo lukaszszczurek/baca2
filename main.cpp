@@ -50,78 +50,7 @@ int main() {
             else if(operationChar == 'R'){
 
 
-                int startIndex= 0;
-                int groupSize = 0;
-                cin >> startIndex >> groupSize;
-                int EndIndex;
 
-                startIndex=((startIndex % tabSize) + tabSize)%tabSize;
-                EndIndex=(startIndex+groupSize -1)%tabSize;
-
-                int currentIndex=startIndex;
-                bool cyclicLogic = true;
-                bool  secondLap =false;
-                if(groupSize == 0){
-                    cyclicLogic = false;
-                }
-                int whileTrue = currentIndex;
-
-
-                while(cyclicLogic){
-//                    int groupInsideIndexer = 0;
-//                    while (groupInsideIndexer < groupSize / 2) {
-//                        int getValue = tab[(currentIndex + groupInsideIndexer) % tabSize];
-//                        tab[(currentIndex + groupInsideIndexer) % tabSize] = tab[(EndIndex - groupInsideIndexer) % tabSize];
-//                        tab[(EndIndex - groupInsideIndexer) % tabSize] = getValue;
-//                        groupInsideIndexer++;
-//                        whileTrue++;
-//
-//                        if(((whileTrue+1) % tabSize < whileTrue % tabSize)){
-//                            secondLap = true;
-//                            //cout<<"SS"<<secondLap;
-//                        }
-//                    }
-//                    currentIndex=(currentIndex + groupSize) % tabSize;
-//                    EndIndex=(currentIndex+groupSize -1) % tabSize;
-//                    if(secondLap && currentIndex+groupSize -1 > startIndex){
-//                        cyclicLogic = false;
-//                    }
-//                }
-
-//                int startIndex= 0;
-//                int groupSize = 0;
-//                cin >> startIndex >> groupSize;
-//                int EndIndex;
-//
-//                startIndex=((startIndex % tabSize) + tabSize)%tabSize;
-//                EndIndex=(startIndex+groupSize -1)%tabSize;
-//
-//                int currentIndex=startIndex;
-//                bool cyclicLogic = true;
-//                bool  secondLap =false;
-//                int whileTrue = currentIndex;
-//
-//
-//                while(cyclicLogic){
-//                    int groupInsideIndexer = 0;
-//                    while (groupInsideIndexer < groupSize / 2) {
-//                        int getValue = tab[(currentIndex + groupInsideIndexer) % tabSize];
-//                        tab[(currentIndex + groupInsideIndexer) % tabSize] = tab[(EndIndex - groupInsideIndexer) % tabSize];
-//                        tab[(EndIndex - groupInsideIndexer) % tabSize] = getValue;
-//                        groupInsideIndexer++;
-//                        whileTrue++;
-//
-//                        if(((whileTrue+1) % tabSize < whileTrue % tabSize)){
-//                            secondLap = true;
-//                            //cout<<"SS"<<secondLap;
-//                        }
-//                    }
-//                    currentIndex=(currentIndex + groupSize) % tabSize;
-//                    EndIndex=(currentIndex+groupSize -1) % tabSize;
-//                    if(secondLap && currentIndex+groupSize-1 > startIndex){
-//                        cyclicLogic = false;
-//                    }
-//                }
 //
                 int startIndex= 0;
                 int groupSize= 0;
