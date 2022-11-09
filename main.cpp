@@ -18,6 +18,15 @@ int main() {
             tabCiner++;
         }
 
+        int tabStartSee = 0;
+        while (tabStartSee < tabSize){
+
+            cout << tab[tabStartSee] << " ";
+
+            tabStartSee++;
+        }
+        cout << endl;
+
 
 
         char operationChar ='i';
@@ -27,16 +36,14 @@ int main() {
 
             if(operationChar == 'F'){
                 gIndexer++;
+
+                int indexCoutTab = 0;
+                while(indexCoutTab < tabSize){
+                    cout << tab[indexCoutTab] <<" ";
+                }
+                cout << endl;
             }
             else if(operationChar == 'R'){
-
-                /*
-                 *      P
-                 *      p
-                 *      P
-                 *
-                 *
-                 */
 
                 int startIndex= 0;
                 int grouptabtabtabSize = 0;
@@ -70,43 +77,14 @@ int main() {
                 }
                 
                 
-                for(int i=0;i<grouptabtabtabSize; i++){
+                for(int i=0;i<grouptabtabtabSize; i++) {
                     cout << tab[i] << " ";
                 }
 
-
-
-
         }
 
-            /*
-             *
-             *
-             *
-             *
-             *
-             *
-             */
-
-
             else if( operationChar == 'M'){
-                //region Descrition
 
-
-
-
-                //endregion
-                /*
-                 *
-                 *
-                 *
-                 *  PPPP PP  PPP PPP PPP
-                 *
-                 *
-                 *
-                 *
-                 *
-                 */
 
 
                 int startIndex = 0;
@@ -193,21 +171,10 @@ int main() {
 
                 }
 
-                /*
-
-
-
-                 */
-
-
             }
 
             else if(operationChar == 'C'){
 
-                /*
-                 * 3 funcja
-
-                 */
 
                 int sIndex = 0;
                 int sGroup = 0;
@@ -247,12 +214,7 @@ int main() {
             
             if(operationChar == 'S')
             {
-        
-                /*
 
-
-                 * 
-                 */
 
                 int startIndex;
                 cin >> startIndex;
@@ -279,13 +241,19 @@ int main() {
                 if(group < 0){
                     group = group * (-1);
                 }
-                while (cycleLogic8) {
+
+                int startInsideIndex = 0;
+                int EndInsideIndex = group-1;
+                while (startInsideIndex < tabSize) {
+
+
+
 
                     if (rtck == 'r') {
-                        int i = 0;
-                        while (i < group) {
-                            int j = 0;
-                            while (j < group - 1) {
+                        int i = startInsideIndex;
+                        while (i <= EndInsideIndex -1) {
+                            int j = startInsideIndex;
+                            while (j <= EndInsideIndex-1) {
                                 if (tab[(currentIndex + j + 1) % tabSize] < tab[(currentIndex + j) % tabSize]) {
                                     int bufor = tab[currentIndex + j + 1];
                                     tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j) % tabSize];
@@ -294,17 +262,14 @@ int main() {
                                 j++;
                             }
                             i++;
-                            whileTrue++;
-                            if (whileTrue > tabSize) {
-                                firstLap = false;
-                            }
+
                         }
                     }
                     if (rtck == 'm') {
-                        int i = 0;
-                        while (i < group) {
-                            int j = 0;
-                            while (j < group - 1) {
+                        int i = startInsideIndex;
+                        while (i <= EndInsideIndex - 1) {
+                            int j = startInsideIndex;
+                            while (j < EndInsideIndex - 1) {
                                 if (tab[(currentIndex + j) % tabSize] < tab[(currentIndex + j + 1) % tabSize]) {
                                     int bufor = 0;
                                     bufor = tab[(currentIndex + j) % tabSize];
@@ -314,22 +279,15 @@ int main() {
                                 j++;
                             }
                             i++;
-                            whileTrue++;
-                            if (whileTrue > tabSize) {
-                                firstLap = false;
-                            }
+
                         }
                     }
 
-                    bool a = (currentIndex+group) % tabSize > startIndex;
+                            startInsideIndex+= group;
 
-                    // cout << !firstLap << " " << a << endl;
-                    if (!firstLap && a) {
-                        cycleLogic8 = false;
+                            EndInsideIndex = min(EndInsideIndex+group , tabSize -1 );
 
-                    }
 
-                    currentIndex = (currentIndex + group) % tabSize;
 
 
                 }
@@ -390,9 +348,6 @@ int main() {
                 
             }
 
-            
-
-            
         }
     }
 
