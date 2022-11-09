@@ -64,11 +64,13 @@ int main() {
 
                 int processed = 0;
 
-                if(groupSize == 0){
-                        tabSize = 0;
-                }
 
-                while (tabSize - processed >= groupSize){
+
+
+
+
+
+                while (tabSize - processed >= groupSize && groupSize != 0  && groupSize< tabSize){
 
                    int groupInsideIndexer = 0;
                     while (groupInsideIndexer < groupSize/2){
