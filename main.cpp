@@ -55,10 +55,15 @@ int main() {
                 int startIndex= 0;
                 int groupSize= 0;
                 cin >> startIndex >> groupSize;
+
+                if(groupSize >= tabSize){
+                    groupSize = tabSize;
+                }
+
                 int EndIndex;
 
                 startIndex=((startIndex % tabSize) + tabSize)%tabSize;
-                EndIndex=(startIndex+groupSize-1)%tabSize;
+                EndIndex=(startIndex+groupSize - 1)%tabSize;
 
                 int currentIndex=startIndex;
 
@@ -70,13 +75,19 @@ int main() {
 
 
 
-                while (tabSize - processed >= groupSize && groupSize != 0  && groupSize< tabSize){
+                while (tabSize - processed >= groupSize && groupSize != 0  ){
 
                    int groupInsideIndexer = 0;
+
+                   int firstNumInd = 0;
+                   int secondNumInd = 0;
+
                     while (groupInsideIndexer < groupSize/2){
+
+
                        // swap(tab[(currentIndex + groupInsideIndexer) % tabSize],tab[(EndIndex - groupInsideIndexer) % tabSize] );
                         int getValue= tab[(currentIndex + groupInsideIndexer) % tabSize];
-                        tab[(currentIndex + groupInsideIndexer) % tabSize] = tab[(EndIndex + groupInsideIndexer) % tabSize];
+                        tab[(currentIndex + groupInsideIndexer) % tabSize] = tab[(EndIndex - groupInsideIndexer) % tabSize];
                         tab[(EndIndex - groupInsideIndexer) % tabSize] = getValue;
                       groupInsideIndexer++;
                     }
@@ -96,8 +107,6 @@ int main() {
         }
 
             else if( operationChar == 'M'){
-
-
 
                 int startIndex = 0;
                 cin >> startIndex;
