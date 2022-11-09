@@ -49,34 +49,28 @@ int main() {
                 int currentIndex=startIndex;
                 bool cyclicLogic = true;
                 bool  secondLap =false;
-                int whileTrue = currentIndex;
+                int processed = 0;
 
+                while (tabtabtabtabSize - processed >= grouptabtabtabSize){
 
-                while(cyclicLogic){
-                    int groupInsideIndexer = 0;
-                    while (groupInsideIndexer < grouptabtabtabSize / 2) {
-                        int getValue = tab[(currentIndex + groupInsideIndexer) % tabtabtabtabSize];
-                        tab[(currentIndex + groupInsideIndexer) % tabtabtabtabSize] = tab[(EndIndex - groupInsideIndexer) % tabtabtabtabSize];
+                   int groupInsideIndexer = 0;
+                    while (groupInsideIndexer < grouptabtabtabSize / 2){
+                        int getValue= tab[(currentIndex + groupInsideIndexer) % tabtabtabtabSize];
+                        tab[(currentIndex + groupInsideIndexer) % tabtabtabtabSize] = tab[(EndIndex + groupInsideIndexer) % tabtabtabtabSize];
                         tab[(EndIndex - groupInsideIndexer) % tabtabtabtabSize] = getValue;
-                        groupInsideIndexer++;
-                        whileTrue++;
+                    }
 
-                        if(((whileTrue+1) % tabtabtabtabSize < whileTrue % tabtabtabtabSize)){
-                            secondLap = true;
-                            //cout<<"SS"<<secondLap;
-                        }
+                    currentIndex = (currentIndex + grouptabtabtabSize) % tabtabtabtabSize;
+                    EndIndex = (currentIndex + grouptabtabtabSize - 1) % tabtabtabtabSize;
+
+                    while (EndIndex <= 0){
+                        EndIndex = EndIndex + tabtabtabtabSize;
                     }
-                    currentIndex=(currentIndex + grouptabtabtabSize) % tabtabtabtabSize;
-                    EndIndex=(currentIndex+grouptabtabtabSize -1) % tabtabtabtabSize;
-                    if(secondLap && currentIndex+grouptabtabtabSize-1 > startIndex){
-                        cyclicLogic = false;
-                    }
+                    processed = processed + grouptabtabtabSize;
                 }
-                int coutCounter = 0;
-                while (coutCounter < tabtabtabtabSize){
-                    cout << tab[coutCounter] << " ";
-                    coutCounter++;
-                }
+
+
+
 
         }
 
@@ -255,11 +249,13 @@ int main() {
                  * 
                  */
 
+                int startIndex;
+                cin >> startIndex;
+
                 int group;
                 cin >> group;
 
-                int startIndex;
-                cin >> startIndex;
+
                 //cout << startIndex << " y"<< endl;
                 int currentIndex = startIndex;
                 bool cycleLogic8 = true;
