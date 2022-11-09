@@ -35,52 +35,53 @@ int main() {
 
             cin >> operationChar;
 
+
             if(operationChar == 'F'){
+
                 gIndexer++;
 
                 int indexCoutTab = 0;
                 while(indexCoutTab < tabSize){
                     cout << tab[indexCoutTab] <<" ";
+                    indexCoutTab++;
                 }
                 cout << endl;
             }
             else if(operationChar == 'R'){
 
                 int startIndex= 0;
-                int grouptabtabtabSize = 0;
-                cin >> startIndex >> grouptabtabtabSize;
+                int groupSize= 0;
+                cin >> startIndex >> groupSize;
                 int EndIndex;
 
                 startIndex=((startIndex % tabSize) + tabSize)%tabSize;
-                EndIndex=(startIndex+grouptabtabtabSize -1)%tabSize;
+                EndIndex=(startIndex+groupSize-1)%tabSize;
 
                 int currentIndex=startIndex;
                 bool cyclicLogic = true;
                 bool  secondLap =false;
                 int processed = 0;
 
-                while (tabSize - processed >= grouptabtabtabSize){
+                while (tabSize - processed >= groupSize){
 
                    int groupInsideIndexer = 0;
-                    while (groupInsideIndexer < grouptabtabtabSize / 2){
+                    while (groupInsideIndexer < groupSize/ 2){
                         int getValue= tab[(currentIndex + groupInsideIndexer) % tabSize];
                         tab[(currentIndex + groupInsideIndexer) % tabSize] = tab[(EndIndex + groupInsideIndexer) % tabSize];
                         tab[(EndIndex - groupInsideIndexer) % tabSize] = getValue;
                     }
 
-                    currentIndex = (currentIndex + grouptabtabtabSize) % tabSize;
-                    EndIndex = (currentIndex + grouptabtabtabSize - 1) % tabSize;
+                    currentIndex = (currentIndex + groupSize) % tabSize;
+                    EndIndex = (currentIndex + groupSize- 1) % tabSize;
 
                     while (EndIndex <= 0){
                         EndIndex = EndIndex + tabSize;
                     }
-                    processed = processed + grouptabtabtabSize;
+                    processed = processed + groupSize;
                 }
                 
                 
-                for(int i=0;i<grouptabtabtabSize; i++) {
-                    cout << tab[i] << " ";
-                }
+
 
         }
 
@@ -167,10 +168,7 @@ int main() {
                 }
 
 
-                for (int i = 0; i < tabSize; ++i) {
-                    cout<< tab[i] <<" ";
 
-                }
 
             }
 
@@ -202,8 +200,7 @@ int main() {
                     }
                     currentIndex = (currentIndex + 2 * sGroup) % tabSize;
                     }
-                    for(int i=0;i<tabSize;i++){
-                        cout<< tab[i]<<" ";}
+
 
             }
 
@@ -256,9 +253,9 @@ int main() {
                             int j = startInsideIndex;
                             while (j <= EndInsideIndex-1) {
                                 if (tab[(currentIndex + j + 1) % tabSize] < tab[(currentIndex + j) % tabSize]) {
-                                    int bufor = tab[currentIndex + j + 1];
+                                    int buf = tab[currentIndex + j + 1];
                                     tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j) % tabSize];
-                                    tab[currentIndex + j] = bufor;
+                                    tab[currentIndex + j] = buf;
                                 }
                                 j++;
                             }
@@ -273,10 +270,10 @@ int main() {
                             int j = startInsideIndex;
                             while (j < EndInsideIndex - 1) {
                                 if (tab[(currentIndex + j + 1) % tabSize] > tab[(currentIndex + j ) % tabSize]) {
-                                    int bufor = 0;
-                                    bufor = tab[(currentIndex + j + 1) % tabSize];
+                                    int buf = 0;
+                                    buf = tab[(currentIndex + j + 1) % tabSize];
                                     tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j + 1) % tabSize];
-                                    tab[(currentIndex + j ) % tabSize] = bufor;
+                                    tab[(currentIndex + j ) % tabSize] = buf;
                                 }
                                 j++;
                             }
@@ -307,9 +304,9 @@ int main() {
                             int j = 0;
                             while (j < lastElementtabtabSize - 1) {
                                 if (tab[(currentIndex + j + 1) % tabSize] < tab[(currentIndex + j) % tabSize]) {
-                                    int bufor = tab[currentIndex + j + 1];
+                                    int buf = tab[currentIndex + j + 1];
                                     tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j) % tabSize];
-                                    tab[currentIndex + j] = bufor;
+                                    tab[currentIndex + j] = buf;
 
                                 }
                                 j++;
@@ -331,10 +328,10 @@ int main() {
                             int j = 0;
                             while (j < lastElementtabtabSize - 1) {
                                 if (tab[(currentIndex + j) % tabSize] < tab[(currentIndex + j + 1) % tabSize]) {
-                                    int bufor = 0;
-                                    bufor = tab[(currentIndex + j) % tabSize];
+                                    int buf = 0;
+                                    buf = tab[(currentIndex + j) % tabSize];
                                     tab[(currentIndex + j) % tabSize] = tab[(currentIndex + j + 1) % tabSize];
-                                    tab[(currentIndex + j + 1) % tabSize] = bufor;
+                                    tab[(currentIndex + j + 1) % tabSize] = buf;
 
                                 }
                                 j++;
