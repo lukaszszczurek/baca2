@@ -1,3 +1,4 @@
+//Lukasz Szczurek
 #include <iostream>
 using namespace std;
 
@@ -271,11 +272,11 @@ int main() {
                         while (i <= EndInsideIndex - 1) {
                             int j = startInsideIndex;
                             while (j < EndInsideIndex - 1) {
-                                if (tab[(currentIndex + j) % tabSize] < tab[(currentIndex + j + 1) % tabSize]) {
+                                if (tab[(currentIndex + j + 1) % tabSize] > tab[(currentIndex + j ) % tabSize]) {
                                     int bufor = 0;
-                                    bufor = tab[(currentIndex + j) % tabSize];
-                                    tab[(currentIndex + j) % tabSize] = tab[(currentIndex + j + 1) % tabSize];
-                                    tab[(currentIndex + j + 1) % tabSize] = bufor;
+                                    bufor = tab[(currentIndex + j + 1) % tabSize];
+                                    tab[(currentIndex + j + 1) % tabSize] = tab[(currentIndex + j + 1) % tabSize];
+                                    tab[(currentIndex + j ) % tabSize] = bufor;
                                 }
                                 j++;
                             }
