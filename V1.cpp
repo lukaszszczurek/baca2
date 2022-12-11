@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 const int MAX_ITEM = 65535;
 int HOW_MANY_ITEMS = 0;
 
@@ -46,12 +47,19 @@ struct yard
 
 
 
-void SET-AP (int Wb, int Rb, int Sb, int Pe, yard ya)
+void SET_AP (int Wb, int Rb, int Sb, int Pe, yard ya)
 {
+
+
   int MAX = ya.war[Wb].ra[Rb].she[Sb].max_size;
   for (int i = Pe; i < MAX; i++)
     {
+
+      HOW_MANY_ITEMS -= ya.war[Wb].ra[Rb].she[Sb].pla[i].good;
       ya.war[Wb].ra[Rb].she[Sb].pla[i].good = 0;
+      ya.war[Wb].ra[Rb].she[Sb].pla[i].label[0] = 0;
+      ya.war[Wb].ra[Rb].she[Sb].pla[i].label[1] = 0;
+      
 
     }
   ya.war[Wb].ra[Rb].she[Sb].max_size = Pe;
@@ -59,42 +67,56 @@ void SET-AP (int Wb, int Rb, int Sb, int Pe, yard ya)
 
 }
 
-void SET-AS (int Wb, int Rb, int Sb, int P, yard ya)
+void SET_AS (int Wb, int Rb, int Se, int Pe, yard ya)
 {
 
-  int MAX = ya.war[Wb].ra[Rb].max_size;
+    for( int i=0; i<Se; i++ ){
 
-  for (int i = P; i < MAX; i++)
-    {
-      ya.war[Wb].ra[Rb].she[Sb].pla[i].good = 0;
-      ya.war[Wb].ra[Rb].she[Sb].pla[i].label[0] = 0;
-      ya.war[Wb].ra[Rb].she[Sb].pla[i].label[1] = 0;
-    }
+      SET_AP (Wb,Rb,i,Pe,ya);
 
-  if (P > MAX)
-    {
-      for (int i = MAX; i < P; i++)
-	{
-	  ya.war[Wb].ra[Rb].she[i].max_size = P;
-	  for (int j = 0; j < P; j++)
-	    {
-	      ya.war[Wb].ra[Rb].she[Sb].pla[j].good = 0;
-	      ya.war[Wb].ra[Rb].she[Sb].pla[j].label[0] = 0;
-	      ya.war[Wb].ra[Rb].she[Sb].pla[j].label[1] = 0;
+      
 
-
-	    }
-
-	}
 
     }
 
-  ya.war[Wb].ra[Rb].max_size = P;
+
+
+
+
+  // int MAX = ya.war[Wb].ra[Rb].max_size;
+
+  // for (int i = P; i < MAX; i++)
+  //   {
+
+  //     ya.war[Wb].ra[Rb].she[Sb].pla[i].good = 0;
+  //     ya.war[Wb].ra[Rb].she[Sb].pla[i].label[0] = 0;
+  //     ya.war[Wb].ra[Rb].she[Sb].pla[i].label[1] = 0;
+  //   }
+
+  // if (P > MAX)
+  //   {
+  //     for (int i = MAX; i < P; i++)
+	// {
+	//   ya.war[Wb].ra[Rb].she[i].max_size = P;
+	//   for (int j = 0; j < P; j++)
+	//     {
+	//       ya.war[Wb].ra[Rb].she[Sb].pla[j].good = 0;
+	//       ya.war[Wb].ra[Rb].she[Sb].pla[j].label[0] = 0;
+	//       ya.war[Wb].ra[Rb].she[Sb].pla[j].label[1] = 0;
+
+
+	//     }
+
+	// }
+
+  //   }
+
+  // ya.war[Wb].ra[Rb].max_size = P;
 
 }
 
 
-void PUT-W ( int w, int r, int s, int p, int A, yard ya)
+void PUT_W ( int w, int r, int s, int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -115,7 +137,7 @@ void PUT-W ( int w, int r, int s, int p, int A, yard ya)
 
 }
 
-void PUT-H (int w, int p, int A, yard ya)
+void PUT_H (int w, int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -134,7 +156,7 @@ void PUT-H (int w, int p, int A, yard ya)
 
 }
 
-void PUT-R (int s, int p, int A, yard ya)
+void PUT_R (int s, int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -157,7 +179,7 @@ void PUT-R (int s, int p, int A, yard ya)
 
 }
 
-void PUT-S (int p, int A, yard ya)
+void PUT_S (int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -176,7 +198,18 @@ void PUT-S (int p, int A, yard ya)
 
 
 
-using namespace std;
+
+
+GET_E(){
+
+    cout << HOW_MANY_ITEMS << endl;
+
+}
+
+
+
+
+
 
 
 
