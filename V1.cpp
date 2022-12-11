@@ -46,7 +46,7 @@ struct yard
 
 
 
-void setsAP (int Wb, int Rb, int Sb, int Pe, yard ya)
+void SET-AP (int Wb, int Rb, int Sb, int Pe, yard ya)
 {
   int MAX = ya.war[Wb].ra[Rb].she[Sb].max_size;
   for (int i = Pe; i < MAX; i++)
@@ -59,7 +59,7 @@ void setsAP (int Wb, int Rb, int Sb, int Pe, yard ya)
 
 }
 
-void setAS (int Wb, int Rb, int Sb, int P, yard ya)
+void SET-AS (int Wb, int Rb, int Sb, int P, yard ya)
 {
 
   int MAX = ya.war[Wb].ra[Rb].max_size;
@@ -94,7 +94,7 @@ void setAS (int Wb, int Rb, int Sb, int P, yard ya)
 }
 
 
-void put1 ( int w, int r, int s, int p, int A, yard ya)
+void PUT-W ( int w, int r, int s, int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -115,7 +115,7 @@ void put1 ( int w, int r, int s, int p, int A, yard ya)
 
 }
 
-void put2 (int w, int p, int A, yard ya)
+void PUT-H (int w, int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -134,7 +134,7 @@ void put2 (int w, int p, int A, yard ya)
 
 }
 
-void put3 (int s, int p, int A, yard ya)
+void PUT-R (int s, int p, int A, yard ya)
 {
 
   int addingReal = 0;
@@ -157,7 +157,7 @@ void put3 (int s, int p, int A, yard ya)
 
 }
 
-void put4 (int p, int A, yard ya)
+void PUT-S (int p, int A, yard ya)
 {
 
   int addingReal = 0;
